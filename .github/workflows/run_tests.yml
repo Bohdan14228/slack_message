@@ -22,10 +22,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      good: ${{ steps.good.outcome }}
-      bad: ${{ steps.bad.outcome }}
-      all: ${{ steps.all.outcome }}
+#    outputs:
+#      good: ${{ steps.good.outcome }}
+#      bad: ${{ steps.bad.outcome }}
+#      all: ${{ steps.all.outcome }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
