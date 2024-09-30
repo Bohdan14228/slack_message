@@ -79,5 +79,6 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: send notification
-        run:
-          curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github" }'
+        run: |
+          curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github"}'
+        
