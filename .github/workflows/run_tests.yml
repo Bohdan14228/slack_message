@@ -80,5 +80,5 @@ jobs:
 
       - name: send notification
         run: |
-          curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github"}'
+          curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github, report hero: https://bohdan14228.github.io/slack_message/"}'
         
