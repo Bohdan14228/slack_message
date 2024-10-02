@@ -82,9 +82,10 @@ jobs:
         if: needs.test.outputs.good != 'failure' && needs.test.outputs.bad != 'failure' && needs.test.outputs.all != 'failure'
         run: |
           curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github, report hero: https://bohdan14228.github.io/slack_message/"}'
-
+          curl --location 'https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage' --header 'Content-Type: application/json' --data '{"chat_id": 5685442945,"text": "Tests passed. Report: https://bohdan14228.github.io/slack_message/"}'
       - name: failure
         if: needs.test.outputs.good == 'failure' || needs.test.outputs.bad == 'failure' || needs.test.outputs.all == 'failure'
         run: |
           curl --location 'https://hooks.slack.com/services/${{ secrets.st_slack }}' --header 'Content-Type: application/json' --data '{"text": "test message from github, report hero: https://bohdan14228.github.io/slack_message/"}'
+          curl --location 'https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage' --header 'Content-Type: application/json' --data '{"chat_id": 5685442945,"text": "Tests faild. Report: https://bohdan14228.github.io/slack_message/"}'
         
